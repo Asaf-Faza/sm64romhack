@@ -901,6 +901,21 @@ s32 act_ground_pound(struct MarioState *m) {
     u32 stepResult;
     f32 yOffset;
 
+    if (m->input & INPUT_B_PRESSED){
+        set_mario_action(m, ACT_DIVE, 0);
+        m->forwardVel = 40.0f;
+        m->vel[1] = 30.0f;
+        m->faceAngle[1] = m->intendedYaw;
+        return FALSE;
+    };
+
+    if (m->input & INPUT_A_PRESSED){
+        m->vel[1] = 60.0f;
+        m->faceAngle[1] = m->intendedYaw;
+        set_mario_action(m, ACT_TWIRLING, 0);
+        return FALSE;
+    };
+
     play_sound_if_no_flag(m, SOUND_ACTION_THROW, MARIO_ACTION_SOUND_PLAYED);
 
     if (m->actionState == 0) {
