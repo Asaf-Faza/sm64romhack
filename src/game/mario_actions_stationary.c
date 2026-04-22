@@ -56,6 +56,10 @@ s32 check_common_idle_cancels(struct MarioState *m) {
         return set_mario_action(m, ACT_START_CROUCHING, 0);
     }
 
+    if (m->controller->buttonPressed & L_TRIG){
+        return set_mario_action(m, ACT_TWIRLING, 0);
+    }
+
     return FALSE;
 }
 

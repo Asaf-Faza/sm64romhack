@@ -119,6 +119,7 @@ enum MarioInput {
     INPUT_B_PRESSED              = /* 0x2000 */ (1 << 13),
     INPUT_Z_DOWN                 = /* 0x4000 */ (1 << 14),
     INPUT_Z_PRESSED              = /* 0x8000 */ (1 << 15),
+    INPUT_L_PRESSED              = /* 0X9000 */ (1 << 16),
 };
 enum GroundStep {
     GROUND_STEP_LEFT_GROUND,

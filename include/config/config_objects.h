@@ -27,7 +27,7 @@
 /**
  * Allow previewing blue coin locations from a blue coin switch when Mario is standing on the blue coin switch.
  */
-// #define BLUE_COIN_SWITCH_PREVIEW
+#define BLUE_COIN_SWITCH_PREVIEW
 
 /****************
  * -- GOOMBA --
@@ -110,7 +110,7 @@
 /**
  * The number of chain balls the Chain Chomp has. Vanilla is 5.
  */
-#define CHAIN_CHOMP_NUM_SEGMENTS 5
+#define CHAIN_CHOMP_NUM_SEGMENTS 50
 
 /***************
  * -- POKEY --

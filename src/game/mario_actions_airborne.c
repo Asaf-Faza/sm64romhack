@@ -433,6 +433,13 @@ s32 act_jump(struct MarioState *m) {
         return TRUE;
     }
 
+    if (m->controller->buttonPressed & L_TRIG){
+        m->vel[1] = 60.0f;
+        m->faceAngle[1] = m->intendedYaw;
+        set_mario_action(m, ACT_TWIRLING, 0);
+        return FALSE;
+    }
+
     if (m->input & INPUT_Z_PRESSED) {
         return set_mario_action(m, ACT_GROUND_POUND, 0);
     }
@@ -617,6 +624,11 @@ s32 act_long_jump(struct MarioState *m) {
         animation = MARIO_ANIM_FAST_LONGJUMP;
     } else {
         animation = MARIO_ANIM_SLOW_LONGJUMP;
+    }
+
+    if (m->input & INPUT_Z_PRESSED){
+        set_mario_action(m, ACT_GROUND_POUND, 0);
+        return FALSE;
     }
 
     play_mario_sound(m, SOUND_ACTION_TERRAIN_JUMP, SOUND_MARIO_YAHOO);
